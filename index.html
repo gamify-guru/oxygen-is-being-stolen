@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OXYGEN IS BEING STOLEN · Passive Voice</title>
+<style>
+  :root { --bg:#0c1220; --panel:#161e30; --line:#2c3b5c; --text:#e8eefc; --muted:#9aabc9; --red:#e43b44; --cyan:#4fd2ff; --lime:#7CFF6B; --amber:#ffc857; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Segoe UI",Trebuchet MS,sans-serif; color:var(--text); background:radial-gradient(800px 360px at 10% -10%, rgba(228,59,68,.28), transparent 55%), var(--bg); line-height:1.5; }
+  .wrap { max-width:760px; margin:0 auto; padding:18px 14px 72px; }
+  .pill { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:5px 10px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 6px 8px 0; }
+  .alert { color:#ffd0d3; border-color:rgba(228,59,68,.6); background:rgba(228,59,68,.15); }
+  h1 { font-size:clamp(28px,8vw,42px); line-height:1.05; margin:8px 0; }
+  h2 { margin:0 0 8px; font-size:22px; }
+  section { background:rgba(22,30,48,.94); border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:14px; }
+  .rule { background:#10182a; border-left:4px solid var(--cyan); border-radius:10px; padding:10px 12px; margin:10px 0; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  th, td { border-bottom:1px solid var(--line); text-align:left; padding:7px 4px; vertical-align:top; }
+  ol { padding-left:18px; }
+  li { margin:8px 0; }
+  input[type=text], textarea { width:100%; margin-top:6px; border-radius:10px; border:1px solid var(--line); background:#0d1424; color:var(--text); padding:10px; font:inherit; }
+  textarea { min-height:72px; resize:vertical; }
+  button { border:0; border-radius:12px; padding:12px 14px; font-weight:800; cursor:pointer; background:var(--cyan); color:#06202a; }
+  button.ghost { background:transparent; color:var(--text); border:1px solid var(--line); margin-left:8px; }
+  .ok { color:var(--lime); font-weight:700; }
+  .bad { color:#ff8d94; font-weight:700; }
+  .hint { color:var(--amber); font-size:14px; }
+  .bar { height:10px; background:#10182a; border-radius:999px; overflow:hidden; margin:8px 0 12px; }
+  .bar span { display:block; height:100%; width:0; background:linear-gradient(90deg,var(--red),var(--lime)); }
+  footer { color:var(--muted); text-align:center; font-size:13px; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="pill alert">Emergency · O2 falling</span>
+  <span class="pill">Герой · 7 класс</span>
+  <h1>OXYGEN IS BEING STOLEN</h1>
+  <p>Корабль слушает только <strong>Passive voice</strong>. Актив «I fix the reactor» система игнорирует. Пассив «The reactor is fixed» открывает шлюз.</p>
+
+  <section>
+    <h2>Правила, без которых не выжить</h2>
+    <div class="rule"><strong>Формула:</strong> подлежащее + be + V3 (третья форма глагола).<br>Кто делает действие, часто не важен. Если нужно, добавляем <strong>by + кто</strong>.</div>
+    <table>
+      <tr><th>Время</th><th>Формула</th><th>Пример</th></tr>
+      <tr><td>Present Simple</td><td>am / is / are + V3</td><td>The lights <strong>are sabotaged</strong>.</td></tr>
+      <tr><td>Past Simple</td><td>was / were + V3</td><td>The reactor <strong>was damaged</strong>.</td></tr>
+      <tr><td>Future Simple</td><td>will be + V3</td><td>The ship <strong>will be saved</strong>.</td></tr>
+      <tr><td>Present Continuous</td><td>am / is / are + being + V3</td><td>Weapons <strong>are being scanned</strong>.</td></tr>
+    </table>
+    <p class="hint">was — один предмет (the reactor, the alarm). were — несколько (doors, valves, buttons).</p>
+    <p>Актив → пассив: Crewmates fix wires. → Wires <strong>are fixed</strong> by crewmates.</p>
+  </section>
+
+  <section>
+    <h2>Прогресс кислорода</h2>
+    <div class="bar"><span id="bar"></span></div>
+    <div id="score">0 / 4 отсека стабилизировано</div>
+  </section>
+
+  <section>
+    <h2>1. Electrical · Present Simple Passive</h2>
+    <p>Перепиши в пассив: am / is / are + V3.</p>
+    <ol>
+      <li>The impostor sabotages the lights.<input id="a1" type="text" placeholder="The lights are sabotaged..." /></li>
+      <li>Engineers check the panel.<input id="a2" type="text" placeholder="The panel is checked..." /></li>
+      <li>A red crewmate blocks the door.<input id="a3" type="text" placeholder="The door is blocked..." /></li>
+      <li>Players report the body.<input id="a4" type="text" placeholder="The body is reported..." /></li>
+    </ol>
+    <button onclick="check1()">Проверить отсек</button>
+    <p id="r1"></p>
+  </section>
+
+  <section>
+    <h2>2. Reactor · Past Simple Passive</h2>
+    <p>Впиши was/were + V3.</p>
+    <ol>
+      <li>The reactor ______ (damage).<input id="b1" type="text" placeholder="was damaged" /></li>
+      <li>Two valves ______ (open).<input id="b2" type="text" placeholder="were opened" /></li>
+      <li>The alarm ______ (hear).<input id="b3" type="text" placeholder="was heard" /></li>
+      <li>Emergency buttons ______ (press).<input id="b4" type="text" placeholder="were pressed" /></li>
+      <li>Oxygen ______ (steal).<input id="b5" type="text" placeholder="was stolen" /></li>
+    </ol>
+    <p>Бонус: одно своё предложение о реакторе.</p>
+    <textarea id="b6" placeholder="The reactor was repaired."></textarea>
+    <button onclick="check2()">Проверить отсек</button>
+    <p id="r2"></p>
+  </section>
+
+  <section>
+    <h2>3. MedBay · найди и исправь</h2>
+    <ol>
+      <li>The body was found in MedBay.</li>
+      <li>I saw the impostor near the vent.</li>
+      <li>The doors was locked by someone.</li>
+      <li>Weapons are being scanned right now.</li>
+      <li>The card swipe by the blue crewmate.</li>
+    </ol>
+    <p>Номера фраз, которые уже в пассиве (через запятую):</p>
+    <input id="c1" type="text" placeholder="1, 4" />
+    <p>Исправь сломанные фразы 3 и 5:</p>
+    <input id="c3" type="text" placeholder="The doors were locked by someone." />
+    <input id="c5" type="text" placeholder="The card was swiped by the blue crewmate." />
+    <button onclick="check3()">Проверить отсек</button>
+    <p id="r3"></p>
+  </section>
+
+  <section>
+    <h2>4. Oxygen · три времени</h2>
+    <p>Слова: oxygen, filter, ship, save, repair. Импостор не подлежащее.</p>
+    <label>Present Simple Passive<input id="d1" type="text" placeholder="Oxygen is checked every minute." /></label>
+    <label>Past Simple Passive<input id="d2" type="text" placeholder="The filter was broken." /></label>
+    <label>Future Simple Passive<input id="d3" type="text" placeholder="The ship will be saved." /></label>
+    <button onclick="check4()">Проверить отсек</button>
+    <p id="r4"></p>
+  </section>
+
+  <section>
+    <h2>Финал</h2>
+    <p id="finale">Закрой четыре отсека. Тогда кислород вернётся, и экипаж скажет: <strong>The hero was not ejected. The ship was saved.</strong></p>
+    <button class="ghost" onclick="resetAll()">Сбросить ответы</button>
+  </section>
+  <footer>Among Us survival quest · Passive voice · 7 класс</footer>
+</div>
+<script>
+const done = {1:false,2:false,3:false,4:false};
+const norm = s => (s||"").toLowerCase().replace(/[^a-z\s]/g," ").replace(/\s+/g," ").trim();
+function has(s, parts){ s = norm(s); return parts.every(p => s.includes(p)); }
+function mark(id, ok, html){ document.getElementById(id).className = ok ? "ok" : "bad"; document.getElementById(id).innerHTML = html; paint(); }
+function paint(){
+  const n = Object.values(done).filter(Boolean).length;
+  document.getElementById("bar").style.width = (n*25) + "%";
+  document.getElementById("score").textContent = n + " / 4 отсека стабилизировано";
+  if(n===4) document.getElementById("finale").innerHTML = "OXYGEN RESTORED. Двери <strong>were locked</strong>, лог <strong>was accepted</strong>. <strong>The hero was not ejected. The ship was saved.</strong>";
+  localStorage.setItem("skeld-passive", JSON.stringify({done, fields: collect()}));
+}
+function collect(){ const o={}; document.querySelectorAll("input,textarea").forEach(el=>o[el.id]=el.value); return o; }
+function check1(){
+  const ok = has(a1.value,["lights","are","sabotaged"]) && has(a2.value,["panel","is","checked"]) && has(a3.value,["door","is","blocked"]) && has(a4.value,["body","is","reported"]);
+  done[1]=ok;
+  mark("r1", ok, ok ? "Отсек открыт. Свет восстановлен." : "Не все пассивы приняты. Проверь am/is/are + V3: are sabotaged, is checked, is blocked, is reported.");
+}
+function check2(){
+  const ok = has(b1.value,["was","damaged"]) && has(b2.value,["were","opened"]) && has(b3.value,["was","heard"]) && has(b4.value,["were","pressed"]) && has(b5.value,["was","stolen"]) && norm(b6.value).split(" ").length>3;
+  done[2]=ok;
+  mark("r2", ok, ok ? "Реактор стабилен." : "Ключи: was damaged, were opened, was heard, were pressed, was stolen. В бонусе нужно своё полное предложение.");
+}
+function check3(){
+  const nums = c1.value.replace(/\s/g,"");
+  const ok = (nums==="1,4"||nums==="4,1") && has(c3.value,["doors","were","locked"]) && has(c5.value,["card","was","swiped"]);
+  done[3]=ok;
+  mark("r3", ok, ok ? "Голосование принято. Пассив распознан." : "Уже в пассиве: 1 и 4. Фраза 3: were locked. Фраза 5: The card was swiped.");
+}
+function check4(){
+  const ok = has(d1.value,["is"]) && has(d1.value,["oxygen"]) && (has(d1.value,["checked"])||has(d1.value,["repaired"])||has(d1.value,["saved"])) && has(d2.value,["was"]) && has(d2.value,["filter"]) && has(d3.value,["will","be"]) && (has(d3.value,["saved"])||has(d3.value,["repaired"]));
+  done[4]=ok;
+  mark("r4", ok, ok ? "Кислород восстановлен." : "Нужны три формулы: is + V3, was + V3, will be + V3. Используй oxygen, filter и ship.");
+}
+function resetAll(){ localStorage.removeItem("skeld-passive"); location.reload(); }
+try {
+  const saved = JSON.parse(localStorage.getItem("skeld-passive")||"null");
+  if(saved && saved.fields){ Object.entries(saved.fields).forEach(([k,v])=>{ const el=document.getElementById(k); if(el) el.value=v; }); }
+} catch(e){}
+</script>
+</body>
+</html>
